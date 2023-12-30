@@ -47,7 +47,13 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
+        ],
+        "pint": [
+            "./vendor/bin/pint --ansii"
         ]
+    },
+    "scripts-descriptions": {
+        "pint": "Run Pint code fixer against your application."
     },
     "extra": {
         "laravel": {
