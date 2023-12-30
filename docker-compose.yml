@@ -1,0 +1,68 @@
+services:
+    # PHP Service
+    app:
+        build:
+            context: .
+            dockerfile: ./docker/php/Dockerfile
+        container_name: catfinder-app
+        restart: unless-stopped
+        tty: true
+        working_dir: /var/www/html/
+        volumes:
+            - ./:/var/www/html/
+        networks:
+            - catfinder-network
+
+    # Nginx Service
+    nginx:
+        build:
+            context: ./docker/nginx/
+            dockerfile: Dockerfile
+        container_name: catfinder-nginx
+        restart: unless-stopped
+        tty: true
+        volumes:
+            - ./:/var/www/html/
+        ports:
+            - 80:80
+            - 433:433
+        networks:
+            - catfinder-network
+
+    # MySQL Service
+    database:
+        image: mysql:8.2.0
+        container_name: catfinder-mysql
+        restart: unless-stopped
+        tty: true
+        ports:
+            - ${DB_PORT}:3306
+        volumes:
+            - catfinder-mysql-data:/var/lib/mysql
+        environment:
+            - MYSQL_DATABASE=${DB_DATABASE}
+            - MYSQL_USER=${DB_USERNAME}
+            - MYSQL_PASSWORD=${DB_PASSWORD}
+            - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+        networks:
+            - catfinder-network
+
+    # Redis Service
+    redis:
+        image: redis:7.2.3
+        container_name: catfinder-redis
+        restart: unless-stopped
+        tty: true
+        ports:
+            - ${REDIS_PORT}:6379
+        networks:
+            - catfinder-network
+
+# Docker volumes
+volumes:
+    catfinder-mysql-data:
+
+# Docker newtorks
+networks:
+    catfinder-network:
+        driver: bridge
