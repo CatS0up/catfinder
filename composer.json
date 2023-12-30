@@ -49,10 +49,10 @@
             "@php artisan key:generate --ansi"
         ],
         "pint": [
-            "./vendor/bin/pint --ansii"
+            "./vendor/bin/pint --ansi"
         ],
         "phpstan": [
-            "./vendor/bin/phpstan analyse --ansii"
+            "./vendor/bin/phpstan analyse --ansi"
         ]
     },
     "scripts-descriptions": {
