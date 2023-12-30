@@ -50,10 +50,14 @@
         ],
         "pint": [
             "./vendor/bin/pint --ansii"
+        ],
+        "phpstan": [
+            "./vendor/bin/phpstan analyse --ansii"
         ]
     },
     "scripts-descriptions": {
-        "pint": "Run Pint code fixer against your application."
+        "pint": "Run Pint code fixer against your application.",
+        "phpstan": "Run PHPStan static analysis against your application."
     },
     "extra": {
         "laravel": {
