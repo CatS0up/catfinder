@@ -1,4 +1,6 @@
 .git
+pint.json
+phpstan.neon
 /.phpunit.cache
 /node_modules
 /public/build
