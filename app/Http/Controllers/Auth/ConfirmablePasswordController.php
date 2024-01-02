@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
@@ -29,7 +31,7 @@ class ConfirmablePasswordController extends Controller
         /** @var User */
         $user = $request->user;
 
-        if (! Auth::guard('web')->validate([
+        if ( ! Auth::guard('web')->validate([
             'email' => $user->email,
             'password' => $request->password,
         ])) {
