@@ -86,6 +86,7 @@ return [
     */
 
     'locale' => env('APP_LOCALE', 'en'),
+    'admin_locale' => env('APP_ADMIN_LOCALE', 'en'),
 
     /*
     |--------------------------------------------------------------------------
