@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,14 +15,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', fn () => view('welcome'));
+/** Auth Group - start */
+Route::as('auth.')
+    ->group(base_path('routes/auth.php'));
+/** Auth Group - end */
 
-Route::get('/dashboard', fn () => view('dashboard'))->middleware(['auth', 'verified'])->name('dashboard');
+/** Guest Group - start */
+Route::middleware('guest')
+    ->as('guest.')
+    ->group(base_path('routes/guest.php'));
+/** Guest Group - end */
 
-Route::middleware('auth')->group(function (): void {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+/** User Group - start */
+Route::middleware(['auth', 'verified'])
+    ->as('user.')
+    ->group(base_path('routes/user.php'));
+/** User Group - end */
 
-require __DIR__.'/auth.php';
+/** Admin Group - start */
+Route::middleware(['auth', 'verified', 'password.confirm'])
+    ->as('admin.')
+    ->prefix('admin')
+    ->group(base_path('routes/admin.php'));
+/** Admin Group - end */
