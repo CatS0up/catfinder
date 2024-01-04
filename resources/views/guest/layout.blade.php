@@ -11,8 +11,8 @@
             </a>
         </div>
 
-        <div class="w-full px-6 py-4 mt-6 overflow-hidden bg-white shadow-md sm:max-w-md dark:bg-gray-800 sm:rounded-lg">
+        <x-card class="w-full mt-6 sm:max-w-md">
             @yield('content')
-        </div>
+        </x-card>
     </div>
 @endsection
