@@ -38,3 +38,8 @@ Route::middleware(['auth', 'verified', 'password.confirm'])
     ->prefix('admin')
     ->group(base_path('routes/admin.php'));
 /** Admin Group - end */
+
+/** Shared Group - start */
+Route::as('shared.')
+    ->group(base_path('routes/shared.php'));
+/** Shared Group - end */
