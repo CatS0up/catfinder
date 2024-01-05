@@ -4,8 +4,11 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Guest;
 
+use App\Actions\Guest\SendContactNotificationAction;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Guest\SendContactNotificationRequest;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 
 class ContactController extends Controller
 {
@@ -14,8 +17,10 @@ class ContactController extends Controller
         return view('guest.contact');
     }
 
-    public function send(): void
+    public function send(SendContactNotificationRequest $request, SendContactNotificationAction $action): RedirectResponse
     {
-        // TODO: Logic
+        $action->handle($request->toDataObject());
+
+        return to_route('guest.contact.show');
     }
 }
