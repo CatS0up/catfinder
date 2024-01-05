@@ -9,6 +9,7 @@ use App\Enums\CatGender;
 use App\Enums\CatStatus;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Spatie\LaravelData\WithData;
 
 class Cat extends Model
@@ -37,6 +38,22 @@ class Cat extends Model
 
     /** @var string */
     protected $dataClass = CatData::class;
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<User, Cat>
+     */
+    public function adopter(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'adopter_id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<User, Cat>
+     */
+    public function addingUser(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'adding_user_id');
+    }
 
     public function markAsForApproval(int $adopterId): void
     {
