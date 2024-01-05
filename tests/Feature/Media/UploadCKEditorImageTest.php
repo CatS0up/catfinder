@@ -20,7 +20,7 @@ it('guest user cannot upload ckeditor image', function (): void {
     post('/ckeditor/image-upload', [
         'upload' => $image,
     ])
-        ->assertForbidden();
+        ->assertRedirect('/login');
 
     assertGuest();
 });
@@ -38,5 +38,6 @@ it('auth user can upload ckeditor image', function (): void {
         ->post('/ckeditor/image-upload', [
             'upload' => $image,
         ])
+        ->assertOk()
         ->assertJsonStructure(['url']);
 });
