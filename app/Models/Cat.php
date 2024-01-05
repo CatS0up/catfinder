@@ -29,6 +29,8 @@ class Cat extends Model
         'gender',
         'status',
         'description',
+        'adopter_id',
+        'adding_user_id',
     ];
 
     protected $casts = [
