@@ -22,7 +22,7 @@ class Recaptcha implements ValidationRule
         );
 
         if ( ! ($response->successful() && $response->json('success') && $response->json('score') > config('services.recaptcha.min_score'))) {
-            $fail('Failed to validate ReCaptcha');
+            $fail(__('Failed to validate ReCaptcha'));
         }
     }
 }
