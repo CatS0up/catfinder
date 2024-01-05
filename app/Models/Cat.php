@@ -25,7 +25,7 @@ class Cat extends Model
         'image_url',
         'name',
         'age',
-        'race',
+        'breed',
         'gender',
         'status',
         'description',

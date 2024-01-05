@@ -19,7 +19,7 @@ it('should create new cat', function (): void {
         'image_url' => 'www.google.pl',
         'name' => 'Garfield',
         'age' => 2,
-        'race' => 'fat cat',
+        'breed' => 'fat cat',
         'gender' => 'm',
         'description' => '<b>Lasangeeee</b>',
     ]);
@@ -31,7 +31,7 @@ it('should create new cat', function (): void {
     assertModelExists($newCat);
     expect($newCat->image_url)->toBe($catData->image_url);
     expect($newCat->age)->toBe($catData->age);
-    expect($newCat->race)->toBe($catData->race);
+    expect($newCat->breed)->toBe($catData->breed);
     expect($newCat->gender)->toBe($catData->gender);
     expect($newCat->description)->toBe($catData->description);
 });

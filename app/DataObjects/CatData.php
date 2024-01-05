@@ -17,7 +17,7 @@ final class CatData extends Data
         public readonly string $image_url,
         public readonly string $name,
         public readonly int $age,
-        public readonly string $race,
+        public readonly string $breed,
         #[WithCast(EnumCast::class)]
         public readonly CatGender $gender,
         #[WithCast(EnumCast::class)]

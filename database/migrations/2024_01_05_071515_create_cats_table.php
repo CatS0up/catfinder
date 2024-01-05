@@ -19,7 +19,7 @@ return new class () extends Migration {
             $table->string('image_url');
             $table->string('name');
             $table->string('gender');
-            $table->string('race');
+            $table->string('breed');
             $table->string('status')
                 ->nullable()
                 ->index();

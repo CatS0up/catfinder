@@ -25,7 +25,7 @@ class CatFactory extends Factory
             'image_url' => fake()->url(),
             'name' => fake()->word(),
             'age' => fake()->randomDigitNot(0),
-            'race' => fake()->word(),
+            'breed' => fake()->word(),
             'gender' => fake()->randomElement(CatGender::class)->value,
             'status' => fake()->randomElement(CatStatus::class)->value,
             'description' => fake()->randomHtml(),
