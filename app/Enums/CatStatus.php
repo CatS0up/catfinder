@@ -7,6 +7,6 @@ namespace App\Enums;
 enum CatStatus: string
 {
     case Available = 'available';
-    case Adopted = 'adopoted';
+    case Adopted = 'adopted';
     case ForApproval = 'for_approval';
 }
