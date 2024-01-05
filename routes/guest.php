@@ -19,5 +19,6 @@ Route::prefix('contact')
             ->name('show');
 
         Route::post('/', 'send')
+            ->middleware('throttle:contact')
             ->name('send');
     });
