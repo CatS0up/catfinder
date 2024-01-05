@@ -43,3 +43,9 @@ Route::middleware(['auth', 'verified', 'role:admin', 'password.confirm'])
 Route::as('shared.')
     ->group(base_path('routes/shared.php'));
 /** Shared Group - end */
+
+/** Media Group - start */
+Route::middleware('auth')
+    ->as('media.')
+    ->group(base_path('routes/media.php'));
+/** Media Group - end */
