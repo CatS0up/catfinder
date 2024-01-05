@@ -6,7 +6,6 @@ namespace App\Actions\Cat;
 
 use App\DataObjects\CatData;
 use App\Models\Cat;
-use App\Models\User;
 
 final class CreateCatAction
 {
