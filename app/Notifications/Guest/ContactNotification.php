@@ -6,10 +6,11 @@ namespace App\Notifications\Guest;
 
 use App\DataObjects\ContactNotificationData;
 use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class ContactNotification extends Notification
+class ContactNotification extends Notification implements ShouldQueue
 {
     use Queueable;
 
@@ -38,7 +39,9 @@ class ContactNotification extends Notification
     {
         return (new MailMessage())
             ->from($this->data->email)
-            ->text($this->data->message);
+            ->with([
+                'text' => $this->data->message,
+            ]);
     }
 
     /**
