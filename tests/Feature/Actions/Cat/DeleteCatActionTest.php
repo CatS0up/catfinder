@@ -7,11 +7,11 @@ use App\Models\Cat;
 
 use function Pest\Laravel\assertModelMissing;
 
-beforeEach(function () {
+beforeEach(function (): void {
     $this->actionUnderTest = app()->make(DeleteCatAction::class);
 });
 
-it('it should delete existing cat', function () {
+it('it should delete existing cat', function (): void {
     // Given
     $cat = Cat::factory()->create();
 
