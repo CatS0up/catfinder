@@ -12,12 +12,12 @@ beforeEach(function (): void {
 
 it('should upload ckeditor image', function (): void {
     // Given
-    Storage::fake('test');
-    $image = UploadedFile::fake()->image('text.jpg');
+    Storage::fake('public');
+    $image = UploadedFile::fake()->image('test.jpg');
 
     // When
     $path = $this->actionUnderTest->handle($image);
 
     // Then
-    Storage::assertExists($path);
+    Storage::disk('public')->assertExists($path);
 });
