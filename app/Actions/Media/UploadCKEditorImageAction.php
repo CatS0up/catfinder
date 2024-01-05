@@ -8,7 +8,7 @@ use Illuminate\Http\UploadedFile;
 
 class UploadCKEditorImageAction
 {
-    public function handle(UploadedFile $file): string|false
+    public function handle(UploadedFile $file): string
     {
         return $file->store('ckeditor', 'public');
     }
