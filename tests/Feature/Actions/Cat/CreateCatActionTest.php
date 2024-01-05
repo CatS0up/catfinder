@@ -29,4 +29,9 @@ it('should create new cat', function (): void {
 
     // Then
     assertModelExists($newCat);
+    expect($newCat->image_url)->toBe($catData->image_url);
+    expect($newCat->age)->toBe($catData->age);
+    expect($newCat->race)->toBe($catData->race);
+    expect($newCat->gender)->toBe($catData->gender);
+    expect($newCat->description)->toBe($catData->description);
 });
