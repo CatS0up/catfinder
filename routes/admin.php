@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 use App\Http\Controllers\Admin\CatApprovalController;
-use App\Http\Controllers\Admin\CatController;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/dashboard', 'admin.dashboard')->name('dashboard');
