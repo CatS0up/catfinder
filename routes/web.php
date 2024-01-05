@@ -33,7 +33,7 @@ Route::middleware(['auth', 'verified'])
 /** User Group - end */
 
 /** Admin Group - start */
-Route::middleware(['auth', 'verified', 'password.confirm'])
+Route::middleware(['auth', 'verified', 'role:admin', 'password.confirm'])
     ->as('admin.')
     ->prefix('admin')
     ->group(base_path('routes/admin.php'));
