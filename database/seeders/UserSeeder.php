@@ -19,13 +19,13 @@ class UserSeeder extends Seeder
             'email' => 'user@user.com',
             'password' => 'user',
         ])
-        ->syncRoles('user');
+            ->syncRoles('user');
 
         User::create([
             'name' => 'admin',
             'email' => 'admin@admin.com',
             'password' => 'admin',
         ])
-        ->syncRoles('admin');
+            ->syncRoles('admin');
     }
 }
