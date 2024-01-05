@@ -37,4 +37,33 @@ class Cat extends Model
 
     /** @var string */
     protected $dataClass = CatData::class;
+
+    public function markAsForApproval(int $adopterId): void
+    {
+        $this->fill([
+            'status' => CatStatus::ForApproval,
+            'adopter_id' => $adopterId,
+        ]);
+
+        $this->save();
+    }
+
+    public function markAsAvailable(): void
+    {
+        $this->fill([
+            'status' => CatStatus::Available,
+            'adopter_id' => null,
+        ]);
+
+        $this->save();
+    }
+
+    public function markAsAdopted(): void
+    {
+        $this->fill([
+            'status' => CatStatus::Adopted,
+        ]);
+
+        $this->save();
+    }
 }
