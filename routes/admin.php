@@ -23,8 +23,3 @@ Route::prefix('cats')
             ->name('reject');
     });
 /** Cat Approval - end */
-
-/** Cats - start */
-Route::prefix('cats')
-    ->resource('/cats', CatController::class);
-/** Cats - end */
