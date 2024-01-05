@@ -4,7 +4,7 @@
             class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-500 transition duration-150 ease-in-out bg-white border border-transparent rounded-md dark:text-gray-400 dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none">
             <div class="flex items-center">
                 <img src="{{ asset("images/locale/{$currentLocaleCode}.png") }}"
-                    alt="The icon for the Polish language displays the flag of Poland" class="w-4">
+                    alt="{{ __(':country flag', ['county' => $currentLocaleCode]) }}" class="w-4">
                 <span class="ml-2">{{ __($currentLocaleName) }}</span>
             </div>
 
@@ -25,7 +25,7 @@
 
                 <x-responsive-nav-link href="#" class="flex items-center" onclick="event.preventDefault(); this.closest('form').submit();">
                     <img src="{{ asset("images/locale/{$code}.png") }}"
-                        alt="The icon for the Polish language displays the flag of Poland">
+                        alt="{{ __(':country flag', ['country' => $code]) }}">
                     <span class="ml-2">{{ __($name) }}</span>
                 </x-responsive-nav-link>
             </form>

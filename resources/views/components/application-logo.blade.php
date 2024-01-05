@@ -1,1 +1,1 @@
-<img src="{{ asset('logo.png') }}" alt="The application logo shows a black cat" {{ $attributes }}>
+<img src="{{ asset('logo.png') }}" alt="{{ __('The application logo shows a black cat') }}" {{ $attributes }}>
