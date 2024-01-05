@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace App\View\Components;
 
+use App\View\Concerns\HasLocaleInfo as ConcernsHasLocaleInfo;
 use Closure;
-use HasLocaleInfo;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 class LocaleDropdownSwitcher extends Component
 {
-    use HasLocaleInfo;
+    use ConcernsHasLocaleInfo;
     /**
      * Get the view / contents that represent the component.
      */
