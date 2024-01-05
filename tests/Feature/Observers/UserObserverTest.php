@@ -8,7 +8,6 @@ use Spatie\Permission\Models\Role;
 it('it should assign "user" role for new created user', function (): void {
     // When
     Role::create(['name' => 'user']);
-    // dd(Role::whereName('user')->exists());
     $user = User::factory()->create();
 
     // Then
