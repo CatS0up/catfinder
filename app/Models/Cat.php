@@ -14,6 +14,10 @@ use Spatie\LaravelData\WithData;
 class Cat extends Model
 {
     use HasFactory;
+
+    /**
+     * @use WithData<CatData>
+     */
     use WithData;
 
     protected $fillable = [
