@@ -18,6 +18,8 @@
                 grecaptcha.execute('{{ config('services.recaptcha.site_key') }}', { action: @js($action) })
                 .then(token => {
                     $refs.input.value = token;
+
+                    parentForm.submit();
                 });
             });
         });
