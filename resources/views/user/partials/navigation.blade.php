@@ -9,7 +9,7 @@
     </x-slot>
 
     <x-slot name="dropdowns">
-        <x-locale-dropdown-switcher/>
+        <x-locale-dropdown-switcher />
 
         <x-dropdown align="right" width="48">
             <x-slot name="trigger">
@@ -18,8 +18,7 @@
                     <div>{{ auth()->user()->name }}</div>
 
                     <div class="ms-1">
-                        <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 20 20">
+                        <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                             <path fill-rule="evenodd"
                                 d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
                                 clip-rule="evenodd" />
@@ -37,7 +36,7 @@
                     {{ __('Admin Panel') }}
                 </x-responsive-nav-link>
 
-                <x-dropdown-link-logout/>
+                <x-dropdown-link-logout />
             </x-slot>
         </x-dropdown>
     </x-slot>
@@ -51,7 +50,7 @@
             </x-slot>
         </x-responsive-menu>
 
-        <x-responsive-locale-switcher/>
+        <x-responsive-locale-switcher />
 
         <x-responsive-menu>
             <x-slot name="settingsOptionsHeader">
@@ -61,14 +60,14 @@
 
             <x-slot name="settingsOptions">
                 <x-responsive-nav-link :href="route('user.profile.edit')" :active="request()->routeIs('user.profile.edit')" class="mt-3 space-y-1">
-                {{ __('Profile') }}
+                    {{ __('Profile') }}
                 </x-responsive-nav-link>
 
                 <x-responsive-nav-link :href="route('admin.dashboard')" class="mt-3 space-y-1">
-                {{ __('Admin Panel') }}
+                    {{ __('Admin Panel') }}
                 </x-responsive-nav-link>
 
-                <x-responsive-nav-link-logout/>
+                <x-responsive-nav-link-logout />
             </x-slot>
         </x-responsive-menu>
     </x-slot>
