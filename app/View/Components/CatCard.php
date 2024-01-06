@@ -17,8 +17,7 @@ class CatCard extends Component
      */
     public function __construct(
         public Cat|CatData $cat,
-    )
-    {
+    ) {
 
     }
 
