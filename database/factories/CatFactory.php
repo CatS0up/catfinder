@@ -23,7 +23,7 @@ class CatFactory extends Factory
     {
         return [
             'image_url' => fake()->url(),
-            'name' => fake()->word(),
+            'name' => fake()->unique()->word(),
             'age' => fake()->randomDigitNot(0),
             'breed' => fake()->word(),
             'gender' => fake()->randomElement(CatGender::class)->value,
@@ -32,5 +32,12 @@ class CatFactory extends Factory
 
             'adding_user_id' => User::factory()->create(),
         ];
+    }
+
+    public function status(CatStatus $status): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'status' => $status,
+        ]);
     }
 }
