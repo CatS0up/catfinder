@@ -69,7 +69,7 @@ it('guest can send ContactNotification to admins and redirect user back when sys
     }
 
     // When & Then
-    $response = post('/contact', [
+    post('/contact', [
         'email' => 'example@example.com',
         'message' => 'Lorem ipsum...',
     ])
