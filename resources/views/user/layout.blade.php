@@ -5,7 +5,7 @@
         @include('user.partials.navigation')
 
         <!-- Page Content -->
-        <main class="flex flex-col py-12 mx-auto grow max-w-7xl sm:px-6 lg:px-8">
+        <main class="flex flex-col w-full py-12 mx-auto grow max-w-7xl sm:px-6 lg:px-8">
             @yield('content')
         </main>
     </div>
