@@ -21,6 +21,7 @@ class ContactController extends Controller
     {
         $action->handle($request->toDataObject());
 
-        return to_route('guest.contact.show');
+        return back()
+            ->with('info', __('Your message has been sent'));
     }
 }
