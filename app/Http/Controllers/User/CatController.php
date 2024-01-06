@@ -5,14 +5,17 @@ declare(strict_types=1);
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\ViewModels\User\Cat\GetCatsViewModel;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
 class CatController extends Controller
 {
-    public function index(): View
+    public function index(Request $request): View
     {
-        return view('user.cats.index');
+        return view('user.cats.index', [
+            'model' => (new GetCatsViewModel($request->integer('page')))->toArray(),
+        ]);
     }
 
     /**
