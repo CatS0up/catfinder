@@ -3,9 +3,11 @@
 declare(strict_types=1);
 
 use App\Http\Controllers\Admin\CatAdoptionApprovalController;
+use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Route;
 
-Route::view('/dashboard', 'admin.dashboard')->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])
+    ->name('dashboard');
 
 /** Cat Approval - start */
 Route::prefix('cats')
