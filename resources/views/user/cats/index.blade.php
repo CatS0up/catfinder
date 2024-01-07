@@ -1,6 +1,9 @@
 @extends('user.layout')
 
 @section('content')
+    <div class="flex items-center justify-end mb-6">
+        <x-link-button href="{{ route('user.cats.create') }}" class="ml-auto">{{ __('Add') }}</x-link-button>
+    </div>
     @if ($model['cats']->isEmpty())
         <div class="w-full h-full m-auto text-xl font-semibold text-center text-gray-900 dark:text-gray-100">
             {{ __('We do not currently have any cats for adoption') }}</div>
