@@ -63,9 +63,11 @@
                     {{ __('Profile') }}
                 </x-responsive-nav-link>
 
-                <x-responsive-nav-link :href="route('admin.dashboard')" class="mt-3 space-y-1">
-                    {{ __('Admin Panel') }}
-                </x-responsive-nav-link>
+                @role('admin')
+                    <x-responsive-nav-link :href="route('admin.dashboard')" class="mt-3 space-y-1">
+                        {{ __('Admin Panel') }}
+                    </x-responsive-nav-link>
+                @endrole
 
                 <x-responsive-nav-link-logout />
             </x-slot>
