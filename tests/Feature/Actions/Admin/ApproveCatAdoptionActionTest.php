@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-use App\Actions\Admin\CancelCatAdoptionAction;
 use App\Actions\Admin\ApproveCatAdoptionAction;
 use App\Enums\CatStatus;
 use App\Exceptions\Admin\AdoptionApproveException;
