@@ -12,6 +12,9 @@ use Spatie\LaravelData\Casts\EnumCast;
 
 final class CatData extends Data
 {
+    #[WithCast(EnumCast::class)]
+    public readonly CatStatus $status;
+
     public function __construct(
         public readonly ?int $id = null,
         public readonly string $image_url,
@@ -20,9 +23,8 @@ final class CatData extends Data
         public readonly string $breed,
         #[WithCast(EnumCast::class)]
         public readonly CatGender $gender,
-        #[WithCast(EnumCast::class)]
-        public readonly ?CatStatus $status = null,
         public readonly string $description,
     ) {
+        $this->status = CatStatus::ForApproval;
     }
 }
