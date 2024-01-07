@@ -31,6 +31,14 @@ uses(TestCase::class, RefreshDatabase::class)->in('Feature');
 
 expect()->extend('toBeOne', fn () => $this->toBe(1));
 
+expect()->extend('toBeHtml', function (string $actual) {
+    $expected = preg_replace('/\s+/', ' ', trim($this->value));
+    $actual = preg_replace('/\s+/', ' ', trim($actual));
+
+    return expect($expected)->toBe($actual);
+});
+
+
 /*
 |--------------------------------------------------------------------------
 | Functions
