@@ -5,6 +5,7 @@ declare(strict_types=1);
 use App\Enums\CatStatus;
 use App\Models\Cat;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 use function Pest\Laravel\actingAs;
 use function Pest\Laravel\get;
@@ -44,10 +45,16 @@ it('auth user should see info when cat list is empty', function (): void {
 it('auth user can see 21 cats per page', function (): void {
     // Given
     $user = User::factory()->create();
-    $cats = Cat::factory(
+    Cat::factory(
         42
     )->status(CatStatus::Available)
-        ->create();
+        ->create(['name' => 'kitty']);
+
+    DB::table('cats')->update([
+        'name' => DB::raw('name || " " || id'),
+    ]);
+
+    $cats = Cat::all();
 
     $firstPage = $cats->slice(0, 21);
     $secondPage = $cats->slice(21, 42);
