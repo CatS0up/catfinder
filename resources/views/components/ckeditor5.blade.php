@@ -64,26 +64,28 @@
             }
         }
     
-        ClassicEditor
-            .create($refs.input)
-            .then(editor => {
-                editor.plugins.get('FileRepository').createUploadAdapter = (loader) => {
-                    return new CustomUploadAdapter(loader);
-                }
+        window.addEventListener('load', () => {
+            ClassicEditor
+                .create($refs.input)
+                .then(editor => {
+                    editor.plugins.get('FileRepository').createUploadAdapter = (loader) => {
+                        return new CustomUploadAdapter(loader);
+                    }
     
-                editor.editing.view.change(writer => {
-                    writer.setStyle(
-                        'min-height',
-                        '200px',
-                        editor.editing.view.document.getRoot(),
-                    );
-                });
+                    editor.editing.view.change(writer => {
+                        writer.setStyle(
+                            'min-height',
+                            '200px',
+                            editor.editing.view.document.getRoot(),
+                        );
+                    });
     
-                editor.setData(@js($value));
-            })
-            .catch(error => {
-                console.error(error);
-            })
+                    editor.setData(@js($value));
+                })
+                .catch(error => {
+                    console.error(error);
+                })
+        });
     })">
     </textarea>
 </div>
