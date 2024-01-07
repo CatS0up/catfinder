@@ -60,6 +60,12 @@ class Cat extends Model
         $query->whereStatus(CatStatus::Adopted);
     }
 
+    /** @param \Illuminate\Database\Eloquent\Builder<Cat> $query */
+    public function scopeForApproval(Builder $query): void
+    {
+        $query->whereStatus(CatStatus::ForApproval);
+    }
+
     /**
      * @return Attribute<string, string>
      */
