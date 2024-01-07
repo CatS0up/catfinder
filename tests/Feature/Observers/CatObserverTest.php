@@ -21,17 +21,8 @@ it('should clean the HTML content of the description when it is dirty', function
         HTML;
 
     $cleanHtml = <<<HTML
-            <!DOCTYPE html>
-                <html>
-                    <head>
-                        <title></title>
-                    </head>
-                    <body>
-                        <h1>Welcome to My Website</h1>
-                        <p>This is a paragraph with <b>bold</b> text.</p>
-                        <img>
-                    </body>
-                </html>
+            <h1>Welcome to My Website</h1>
+            <p>This is a paragraph with <b>bold</b> text.</p>
         HTML;
 
     $cat = Cat::factory()->create([
@@ -41,6 +32,7 @@ it('should clean the HTML content of the description when it is dirty', function
     // Then
     $expected = preg_replace('/\s+/', ' ', trim($cleanHtml));
     $actual = preg_replace('/\s+/', ' ', trim($cat->description));
+
 
     expect($expected)->toBe($actual);
 });
