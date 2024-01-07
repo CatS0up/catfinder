@@ -54,6 +54,12 @@ class Cat extends Model
         $query->whereStatus(CatStatus::Available);
     }
 
+    /** @param \Illuminate\Database\Eloquent\Builder<Cat> $query */
+    public function scopeAdopted(Builder $query): void
+    {
+        $query->whereStatus(CatStatus::Adopted);
+    }
+
     /**
      * @return Attribute<string, string>
      */
