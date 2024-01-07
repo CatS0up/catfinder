@@ -11,7 +11,7 @@ use Illuminate\Pagination\Paginator;
 
 class DashboardViewModel extends BaseViewModel
 {
-    private const PER_PAGE = 1;
+    private const PER_PAGE = 21;
 
     public function __construct(private readonly int $currentPage)
     {
@@ -21,6 +21,7 @@ class DashboardViewModel extends BaseViewModel
     public function catsForApproval(): Paginator
     {
         $items = Cat::query()
+            ->forApproval()
             ->latest()
             ->get()
             ->map(fn (Cat $cat): CatData => $cat->getData())
