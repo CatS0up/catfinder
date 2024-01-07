@@ -40,6 +40,7 @@ class Cat extends Model
         'status' => CatStatus::class,
     ];
 
+    /** @var array<string, mixed> */
     protected $attributes = [
         'status' => CatStatus::ForApproval,
     ];
