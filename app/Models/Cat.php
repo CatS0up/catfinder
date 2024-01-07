@@ -8,6 +8,7 @@ use App\DataObjects\CatData;
 use App\Enums\CatGender;
 use App\Enums\CatStatus;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -46,6 +47,14 @@ class Cat extends Model
     public function scopeAvailable(Builder $query): void
     {
         $query->whereStatus(CatStatus::Available);
+    }
+
+    /**
+     * @return Attribute<string, string>
+     */
+    public function name(): Attribute
+    {
+        return new Attribute(set: fn (string $value) => str($value)->title());
     }
 
     /**
