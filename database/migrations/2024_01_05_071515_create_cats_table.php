@@ -22,7 +22,7 @@ return new class () extends Migration {
             $table->string('gender');
             $table->string('breed');
             $table->string('status')
-                ->default(CatStatus::ForApproval)
+                ->default(CatStatus::Available)
                 ->index();
 
             $table->text('description');

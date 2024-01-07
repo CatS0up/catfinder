@@ -42,7 +42,7 @@ class Cat extends Model
 
     /** @var array<string, mixed> */
     protected $attributes = [
-        'status' => CatStatus::ForApproval,
+        'status' => CatStatus::Available,
     ];
 
     /** @var string */

@@ -25,6 +25,6 @@ final class CatData extends Data
         public readonly CatGender $gender,
         public readonly string $description,
     ) {
-        $this->status = CatStatus::ForApproval;
+        $this->status = CatStatus::Available;
     }
 }
