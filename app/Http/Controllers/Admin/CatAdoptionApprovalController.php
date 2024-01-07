@@ -8,7 +8,6 @@ use App\Actions\Admin\ApproveCatAdoptionAction;
 use App\Actions\Admin\CancelCatAdoptionAction;
 use App\Http\Controllers\Controller;
 use App\Models\Cat;
-use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 
 class CatAdoptionApprovalController extends Controller

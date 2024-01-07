@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Enums\CatStatus;
 use App\Models\Cat;
 use App\Models\User;
@@ -9,8 +11,8 @@ use Spatie\Permission\Models\Role;
 use function Pest\Laravel\actingAs;
 use function Pest\Laravel\get;
 
-beforeEach(function () {
-     session(['auth.password_confirmed_at' => time()]);
+beforeEach(function (): void {
+    session(['auth.password_confirmed_at' => time()]);
 });
 
 it('guest user cannot display dashboard', function (): void {

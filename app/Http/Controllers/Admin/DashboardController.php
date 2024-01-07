@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
-use App\DataTables\Admin\CatsDataTable;
 use App\Http\Controllers\Controller;
 use App\ViewModels\Admin\DashboardViewModel;
 use Illuminate\Http\Request;
