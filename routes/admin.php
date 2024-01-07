@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\Http\Controllers\Admin\CatApprovalController;
+use App\Http\Controllers\Admin\CatAdoptionApprovalController;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/dashboard', 'admin.dashboard')->name('dashboard');
@@ -10,7 +10,7 @@ Route::view('/dashboard', 'admin.dashboard')->name('dashboard');
 /** Cat Approval - start */
 Route::prefix('cats')
     ->as('cats.approve.')
-    ->controller(CatApprovalController::class)
+    ->controller(CatAdoptionApprovalController::class)
     ->group(function (): void {
         Route::get('/for-approval', 'index')
             ->name('index');
