@@ -3,15 +3,15 @@
         <x-nav-link :href="route('user.cats.index')">
             {{ __('Home') }}
         </x-nav-link>
-        <x-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
-            {{ __('Dashboard') }}
-        </x-nav-link>
-        <x-nav-link :href="route('admin.cats.approve.index')" :active="request()->routeIs('admin.cats.approve.index')">
-            {{ __('Cats for Approval') }}
-        </x-nav-link>
+
+        @role('admin')
+            <x-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
+                {{ __('Dashboard') }}
+            </x-nav-link>
+        @endrole
     </x-slot>
 
-<x-slot name="dropdowns">
+    <x-slot name="dropdowns">
         <x-dropdown align="right" width="48">
             <x-slot name="trigger">
                 <button
@@ -29,7 +29,7 @@
             </x-slot>
 
             <x-slot name="content">
-                <x-dropdown-link-logout/>
+                <x-dropdown-link-logout />
             </x-slot>
         </x-dropdown>
     </x-slot>
@@ -40,12 +40,12 @@
                 <x-responsive-nav-link :href="route('user.cats.index')">
                     {{ __('Home') }}
                 </x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
-                    {{ __('Dashboard') }}
-                </x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('admin.cats.approve.index')" :active="request()->routeIs('admin.cats.approve.index')">
-                    {{ __('Cats For Approval') }}
-                </x-responsive-nav-link>
+
+                @role('admin')
+                    <x-responsive-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
+                        {{ __('Dashboard') }}
+                    </x-responsive-nav-link>
+                @endrole
             </x-slot>
         </x-responsive-menu>
 
@@ -56,7 +56,7 @@
             </x-slot>
 
             <x-slot name="settingsOptions">
-                <x-responsive-nav-link-logout/>
+                <x-responsive-nav-link-logout />
             </x-slot>
         </x-responsive-menu>
     </x-slot>
