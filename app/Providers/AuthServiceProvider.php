@@ -45,7 +45,5 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         Gate::define('choose-cat-for-adoption', fn (User $user) => $user->hasRole('user'));
-
-        Gate::define('approve-cat-adoption', fn (User $user) => $user->hasRole('admin'));
     }
 }
