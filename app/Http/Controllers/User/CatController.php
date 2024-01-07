@@ -23,7 +23,7 @@ class CatController extends Controller
     public function index(Request $request): View
     {
         return view('user.cats.index', [
-            'model' => (new GetCatsViewModel($request->integer('page')))->toArray(),
+            'model' => (new GetCatsViewModel($request->integer('page', 1)))->toArray(),
         ]);
     }
 
