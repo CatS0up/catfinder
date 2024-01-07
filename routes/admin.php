@@ -14,11 +14,9 @@ Route::prefix('cats')
     ->group(function (): void {
         Route::get('/for-approval', 'index')
             ->name('index');
-        Route::get('/{cat}/approve', 'show')
-            ->name('show');
-        Route::patch('/{cat}/accept', 'accept')
-            ->name('accept');
-        Route::patch('/{cat}/reject', 'reject')
-            ->name('reject');
+        Route::patch('/{cat}/approve', 'approve')
+            ->name('approve');
+        Route::patch('/{cat}/cancel', 'cancel')
+            ->name('cancel');
     });
 /** Cat Approval - end */
