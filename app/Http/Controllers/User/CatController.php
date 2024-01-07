@@ -4,9 +4,18 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\User;
 
+use App\Actions\Cat\CreateCatAction;
+use App\Actions\Cat\DeleteCatAction;
+use App\Actions\Cat\UpdateCatAction;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\User\Cat\UpsertCatRequest;
+use App\Models\Cat;
 use App\ViewModels\User\Cat\GetCatsViewModel;
+use App\ViewModels\User\Cat\ShowCatViewModel;
+use App\ViewModels\User\Cat\UpdateCatViewModel;
+use Illuminate\Auth\AuthManager;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class CatController extends Controller
@@ -29,40 +38,59 @@ class CatController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request): void
+    public function store(UpsertCatRequest $request, CreateCatAction $action, AuthManager $auth): RedirectResponse
     {
-        // TODO: Logic
+        $cat = $action->handle($request->toDataObject(), (int)$auth->id());
+
+        return to_route('user.cats.index')
+            ->with('success', __('Cat :cat has been created', ['cat' => $cat->name]));
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id): View
+    public function show(Cat $cat): View
     {
-        return view('user.cats.show');
+        return view('user.cats.show', [
+            'model' => (new ShowCatViewModel($cat))->toArray(),
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id): View
+    public function edit(Cat $cat): View
     {
-        return view('user.cats.show');
+        $this->authorize('update-cat', $cat);
+
+        return view('user.cats.edit', [
+            'model' => (new UpdateCatViewModel($cat))->toArray(),
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id): void
+    public function update(Cat $cat, UpsertCatRequest $request, UpdateCatAction $action, AuthManager $auth): RedirectResponse
     {
-        // TODO: Logic
+        $this->authorize('update-cat', $cat);
+
+        $cat = $action->handle($cat->id, $request->toDataObject());
+
+        return to_route('user.cats.index')
+            ->with('success', __('Cat :cat has been updated', ['cat' => $cat->name]));
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id): void
+    public function destroy(Cat $cat, DeleteCatAction $action): RedirectResponse
     {
-        // TODO: Logic
+        $this->authorize('delete-cat', $cat);
+
+        $action->handle($cat->id);
+
+        return to_route('user.cats.index')
+            ->with('info', __('Cat :cat has been deleted', ['cat' => $cat->name]));
     }
 }
