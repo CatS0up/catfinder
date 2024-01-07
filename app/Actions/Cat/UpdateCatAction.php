@@ -6,6 +6,7 @@ namespace App\Actions\Cat;
 
 use App\DataObjects\CatData;
 use App\Models\Cat;
+use Illuminate\Support\Arr;
 
 final class UpdateCatAction
 {
@@ -20,7 +21,7 @@ final class UpdateCatAction
         $cat = $this->cat->query()
             ->findOrFail($id);
 
-        $cat->update($data->toArray());
+        $cat->update(Arr::except($data->toArray(), 'adding_user_id'));
 
         return $cat;
     }
