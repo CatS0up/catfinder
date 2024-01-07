@@ -10,7 +10,11 @@
     @else
         <section class="grid items-start row-auto gap-6 auto-rows-min sm:grid-cols-2 lg:grid-cols-3 grow">
             @foreach ($model['cats'] as $cat)
-                <x-cat-card :cat="$cat" />
+                <x-cat-card :cat="$cat">
+                    <x-link-button href="{{ route('user.cats.show', ['cat' => $cat->id]) }}">
+                        {{ __('Details') }}
+                    </x-link-button>
+                </x-cat-card>
             @endforeach
         </section>
 

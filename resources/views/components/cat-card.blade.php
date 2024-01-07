@@ -25,8 +25,6 @@
     </div>
 
     <div class="mt-6">
-        <x-link-button href="{{ route('user.cats.show', ['cat' => $cat->id]) }}">
-            {{ __('Details') }}
-        </x-link-button>
+        {{ $slot }}
     </div>
 </x-card>
