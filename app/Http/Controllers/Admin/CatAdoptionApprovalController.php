@@ -13,11 +13,6 @@ use Illuminate\Http\RedirectResponse;
 
 class CatAdoptionApprovalController extends Controller
 {
-    public function index(): View
-    {
-        return view('admin.cats-approve.index');
-    }
-
     public function approve(Cat $cat, ApproveCatAdoptionAction $action): RedirectResponse
     {
         $action->handle($cat->id);
