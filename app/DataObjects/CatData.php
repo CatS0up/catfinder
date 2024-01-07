@@ -24,6 +24,7 @@ final class CatData extends Data
         #[WithCast(EnumCast::class)]
         public readonly CatGender $gender,
         public readonly string $description,
+        public readonly ?int $adding_user_id = null,
     ) {
         $this->status = CatStatus::Available;
     }
