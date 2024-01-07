@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('body')
-<div class="min-h-screen bg-gray-100 dark:bg-gray-900">
+    <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
         @include('admin.partials.navigation')
 
         <!-- Page Header -->
@@ -15,12 +15,8 @@
 
 
         <!-- Page Content -->
-        <main>
-            <div class="py-12">
-                <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-                    @yield('content')
-                </div>
-            </div>
+        <main class="flex flex-col min-h-screen py-12 mx-auto max-w-7xl sm:px-6 lg:px-8">
+            @yield('content')
         </main>
-</div>
+    </div>
 @endsection
