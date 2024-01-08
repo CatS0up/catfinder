@@ -34,9 +34,6 @@ COPY . /var/www/html/
 # Copy existing application directory permissions
 COPY --chown=www:www . /var/www/html/
 
-# Create storage link
-RUN cd public && ln -sf ../../storage/app/public/ storage
-
 # Change current user to www
 USER www
 
